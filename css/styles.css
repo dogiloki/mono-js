@@ -108,8 +108,13 @@ body{
 	font-size: 18px;
 	border-radius: 0px 0px 5px 5px;
 }
+.content-juego .objeto{
+	width: 40px;
+	height: 40px;
+	position: absolute;
+}
 .content-juego .mono{
-	width: 200px;
+	width: 120px;
 	height: 100px;
 	position: absolute;
 	bottom: 0px;
