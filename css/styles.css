@@ -7,14 +7,15 @@
 body{
 	width: 100vw;
 	height: 100vh;
-	background-image: url("../assets/fondo.png");
-	background-repeat: no-repeat;
-	background-size: cover;
+	background-image: url("../assets/fondo.svg");
+	/*background-repeat: no-repeat;
+	background-size: cover;*/
 	background-position: center center;
 	background-attachment: fixed;
 	display: flex;
 	justify-content: center;
-	align-items: center;
+	align-items: baseline;
+	cursor: default;
 }
 .content-inicio{
 	padding: 30px;
@@ -23,6 +24,18 @@ body{
 	-webkit-box-shadow: 3px 3px 10px 0px #000000;
 	-moz-box-shadow: 3px 3px 10px 0px #000000;
 	box-shadow: 3px 3px 10px 0px #000000;
+	animation: 0.5s mover_inicio ease;
+	-webkit-animation: 0.5s mover_inicio ease;
+	-moz-animation: 0.5s mover_inicio ease;
+	margin-top: 50px;
+}
+@keyframes mover_inicio{
+	from{
+		transform: translateY(-100vh);
+	}
+	to{
+		transform: translateY(0%);
+	}
 }
 .content-inicio h1{
 	text-align: center;
@@ -56,4 +69,48 @@ body{
 .content-inicio .btn:hover{
 	color: #0a9002;
 	border: 1px solid #0a9002;
+}
+.content-juego{
+	width: 100vw;
+	height: 100vh;
+	position: relative;
+	left: 0px;
+	top: 0px;
+}
+.content-juego .content-datos{
+	padding: 5px;
+	background: none;
+	position: relative;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+.content-juego .content-datos .audio{
+	width: 30px;
+	height: 30px;
+	cursor: pointer;
+}
+.content-juego .content-datos .content-vidas{
+	display: flex;
+}
+.content-juego .content-datos .content-vidas .vida{
+	width: 30px;
+	height: 30px;
+	margin-right: 10px;
+}
+.content-juego .content-datos .puntaje{
+	background: #4b390c;
+	color: #f5f5f5;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	padding: 5px;
+	font-size: 18px;
+	border-radius: 0px 0px 5px 5px;
+}
+.content-juego .mono{
+	width: 200px;
+	height: 100px;
+	position: absolute;
+	bottom: 0px;
 }

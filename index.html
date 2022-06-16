@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Mono</title>
+	<title>Juego del Mono</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 </head>
 <body>
 
-	<section class="content-inicio" id="content-inicio">
+	<section class="content-inicio" id="content-inicio" style="display: none;">
 		<h1>JUEGO DEL MONO</h1>
 		<fieldset class="content-puntajes">
 			<legend>Puntajes</legend>
@@ -23,7 +23,22 @@
 		<button class="btn" id="btn-jugar">JUGAR</button>
 	</section>
 
-	<section class="content-juego"></section>
+	<section class="content-juego">
+		<div class="content-datos">
+			<div class="puntaje">Bananas: 10</div>
+			<div class="content-vidas">
+				<img src="assets/vida.svg" class="vida" id="vida1">
+				<img src="assets/vida.svg" class="vida" id="vida2">
+				<img src="assets/vida.svg" class="vida" id="vida3">
+				<img src="assets/vida.svg" class="vida" id="vida4">
+				<img src="assets/vida.svg" class="vida" id="vida5">
+			</div>
+			<img src="assets/audio.svg" class="audio" id="btn-audio">
+		</div>
+		<img src="assets/mono/mono1.svg" class="mono" id="mono">
+	</section>
+
+	<audio src="assets/musica.wav" loopp reload="auto" id="musica"></audio>
 
 </body>
 </html>
