@@ -6,6 +6,7 @@
 	<title>Juego del Mono</title>
 	<link rel="stylesheet" type="text/css" href="css/styles.css">
 	<script type="text/javascript" src="js/Diccionario.js"></script>
+	<script type="text/javascript" src="js/Puntaje.js"></script>
 </head>
 <body>
 
@@ -13,15 +14,15 @@
 		<h1>JUEGO DEL MONO</h1>
 		<fieldset class="content-puntajes">
 			<legend>Puntajes</legend>
-			<ol id="puntajes">
-				<li>Jose - 100 bananas</li>
-				<li>Juan - 100 bananas</li>
-				<li>Maria - 100 bananas</li>
-				<li>Marco - 100 bananas</li>
-				<li>Martha - 100 bananas</li>
-			</ol>
+			<ol id="puntajes"></ol>
 		</fieldset>
 		<button class="btn" id="btn-jugar">JUGAR</button>
+	</section>
+
+	<section class="content-puntaje" id="content-puntaje-obtenido" style="display: none;">
+		<div class="bananas" id="content-puntaje"></div>
+		<input type="text" class="caja" id="caja-nombre" placeholder="Nombre">
+		<button class="btn" id="btn-aceptar">ACEPTAR</button>
 	</section>
 
 	<section class="content-juego" id="content-juego" style="display: none;">
