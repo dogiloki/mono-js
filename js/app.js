@@ -10,6 +10,7 @@ var btn_aceptar=document.getElementById('btn-aceptar');
 var btn_jugar=document.getElementById('btn-jugar');
 var btn_audio=document.getElementById('btn-audio');
 var audio=document.getElementById('audio');
+var intervalo_juego;
 var mono={
 	obj:document.getElementById('mono'),
 	vidas:null,
@@ -119,12 +120,12 @@ function resetear(){
 	}
 	this.btn_audio.setAttribute("src",Diccionario.imagenes.audio);
 	// Eliminar objetos
-	let objetos=this.content_juego.getElementsByClassName("objeto");
+	/*let objetos=this.content_juego.getElementsByClassName("objeto");
 	let conta=0;
 	while(conta<objetos.length){
 		this.content_juego.removeChild(objetos[0]);
 		conta++;
-	}
+	}*/
 }
 
 function quitarVida(){
@@ -157,7 +158,11 @@ function moverObjeto(objeto){
 			}else
 			if(objeto.getAttribute("src")==Diccionario.imagenes.tronco){
 				if(!this.quitarVida()){
+					content_juego.removeChild(objeto);
+					clearInterval(intervalo);
+					clearInterval(this.intervalo_juego);
 					this.mostrarPuntaje();
+					return;
 				}
 			}
 			content_juego.removeChild(objeto);
@@ -205,11 +210,10 @@ function jugar(){
 	this.modal(content_inicio,false);
 	this.resetear();
 	this.audio.play();
-	let intervalo;
-	intervalo=setInterval(()=>{
+	this.intervalo_juego=setInterval(()=>{
 		this.crearObjeto(this.numeroAleatorio(5,1));
 		if(this.mono.vidas<=0){
-			clearInterval(intervalo);
+			clearInterval(this.intervalo_juego);
 		}
 	},1500);
 }
