@@ -20,7 +20,7 @@ var mono={
 	img:null
 }
 this.audio.setAttribute("src",Diccionario.audios.musica);
-	this.grito.setAttribute("src",Diccionario.audios.grito);
+this.grito.setAttribute("src",Diccionario.audios.grito);
 
 // Métodos a ejecutar al inicio
 document.addEventListener("DOMContentLoaded",()=>{
