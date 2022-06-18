@@ -207,14 +207,16 @@ function jugar(){
 function mostrarPuntaje(){
 	this.modal(content_juego,false);
 	this.modal(content_puntaje_obtenido,true);
-	this.caja_nombre.value="Jugador "+(Number((Puntaje.puntajes()??[]).length)+1);
+	this.caja_nombre.value="Jugador "+(Number((Puntaje.puntajes??[]).length)+1);
 	this.puntaje_obtenido.innerHTML=this.mono.bananas;
 	this.audio.pause();
 }
 
 function obtenerPuntajes(){
 	this.content_puntaje.innerHTML="";
-	(Puntaje.puntajes()??[]).forEach((dato)=>{
+	(Puntaje.puntajes??[]).sort((a,b)=>{
+		return (a.bananas>b.bananas)?-1:(a.bananas<b.bananas)?1:0;
+	}).forEach((dato)=>{
 		let puntaje=document.createElement("li");
 		puntaje.innerHTML=`${dato.nombre} - ${dato.bananas}`;
 		this.content_puntaje.appendChild(puntaje);

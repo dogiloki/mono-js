@@ -11,8 +11,6 @@ class Puntaje{
 		return true;
 	}
 
-	static puntajes(){
-		return JSON.parse(localStorage.getItem("puntajes"));
-	}
+	static puntajes=JSON.parse(localStorage.getItem("puntajes"));
 
 }
