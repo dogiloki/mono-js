@@ -45,6 +45,16 @@ btn_aceptar.addEventListener("click",()=>{
 	Puntaje.agregar(datos);
 	this.inicio();
 });
+caja_nombre.addEventListener("keydown",(evt)=>{
+	if(evt.keyCode==Diccionario.tecla.enter){
+		let datos={
+			bananas: this.mono.bananas,
+			nombre: this.caja_nombre.value
+		}
+		Puntaje.agregar(datos);
+		this.inicio();
+	}
+});
 
 // Detectar tecla para mover el mono
 document.addEventListener("keydown",(evt)=>{
@@ -207,14 +217,16 @@ function jugar(){
 function mostrarPuntaje(){
 	this.modal(content_juego,false);
 	this.modal(content_puntaje_obtenido,true);
-	this.caja_nombre.value="Jugador "+(Number((Puntaje.puntajes??[]).length)+1);
+	this.caja_nombre.value="Jugador "+(Number((Puntaje.puntajes()??[]).length)+1);
+	this.caja_nombre.focus();
+	this.caja_nombre.select();
 	this.puntaje_obtenido.innerHTML=this.mono.bananas;
 	this.audio.pause();
 }
 
 function obtenerPuntajes(){
 	this.content_puntaje.innerHTML="";
-	(Puntaje.puntajes??[]).sort((a,b)=>{
+	(Puntaje.puntajes()??[]).sort((a,b)=>{
 		return (a.bananas>b.bananas)?-1:(a.bananas<b.bananas)?1:0;
 	}).forEach((dato)=>{
 		let puntaje=document.createElement("li");

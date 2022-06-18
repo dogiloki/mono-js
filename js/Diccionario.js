@@ -28,11 +28,12 @@ class Diccionario{
 
 	static tecla={
 		izq: 37,
-		der: 39
+		der: 39,
+		enter: 13
 	};
 
 	static mono={
-		vidas:5
+		vidas:3
 	};
 
 }
