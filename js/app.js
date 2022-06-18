@@ -135,6 +135,7 @@ function moverObjeto(objeto){
 		let altura=Number(objeto.style.top.replace("px",""));
 		let izquierda=Number(objeto.style.left.replace("px",""));
 		let izquierda_mono=Number(this.mono.obj.style.left.replace("px",""));
+		//console.log(objeto);
 		objeto.style.top=(altura+5)+"px";
 		if(altura>=limite_abajo-5){
 			content_juego.removeChild(objeto);
@@ -156,8 +157,8 @@ function moverObjeto(objeto){
 }
 
 function crearObjeto(num){
-	let conta=0, intervalo;
-	intervalo=setInterval(()=>{
+	let conta=0;
+	for(let a=0; a<num; a++){
 		let limite_izq=0;
 		let limite_der=window.innerWidth-this.mono.obj.width-10;
 		let tronco=document.createElement("img");
@@ -171,12 +172,10 @@ function crearObjeto(num){
 		}
 		this.content_juego.appendChild(tronco);
 		this.moverObjeto(tronco);
-		if(conta>=num){
+		if(a>=num){
 			this.content_juego.removeChild(tronco);
-			clearInterval(intervalo);
 		}
-		conta++;
-	},this.numeroAleatorio(1500));
+	}
 }
 
 function numeroAleatorio(max=0,min=0){
