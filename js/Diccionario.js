@@ -31,4 +31,8 @@ class Diccionario{
 		der: 39
 	};
 
+	static mono={
+		vidas:5
+	};
+
 }

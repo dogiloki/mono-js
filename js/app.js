@@ -91,7 +91,7 @@ function modal(content,visible=-1){
 function resetear(){
 	this.mono.obj.style.bottom="0px";
 	this.mono.obj.style.left="10px";
-	this.mono.vidas=1;
+	this.mono.vidas=Diccionario.mono.vidas;
 	this.mono.bananas=0;
 	this.mono.mira="der";
 	this.mono.img=0;
@@ -197,7 +197,7 @@ function jugar(){
 	this.audio.play();
 	let intervalo;
 	intervalo=setInterval(()=>{
-		this.crearObjeto(this.numeroAleatorio(3,1));
+		this.crearObjeto(this.numeroAleatorio(5,1));
 		if(this.mono.vidas<=0){
 			clearInterval(intervalo);
 		}
