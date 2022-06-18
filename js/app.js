@@ -10,6 +10,7 @@ var btn_aceptar=document.getElementById('btn-aceptar');
 var btn_jugar=document.getElementById('btn-jugar');
 var btn_audio=document.getElementById('btn-audio');
 var audio=document.getElementById('audio');
+var grito=document.getElementById('grito');
 var intervalo_juego;
 var mono={
 	obj:document.getElementById('mono'),
@@ -18,6 +19,8 @@ var mono={
 	mira:null,
 	img:null
 }
+this.audio.setAttribute("src",Diccionario.audios.musica);
+	this.grito.setAttribute("src",Diccionario.audios.grito);
 
 // Métodos a ejecutar al inicio
 document.addEventListener("DOMContentLoaded",()=>{
@@ -59,6 +62,9 @@ caja_nombre.addEventListener("keydown",(evt)=>{
 
 // Detectar tecla para mover el mono
 document.addEventListener("keydown",(evt)=>{
+	if(this.mono.obj.getAttribute("src")==Diccionario.imagenes.mono_muerto[this.mono.mira]){
+		return;
+	}
 	let tecla=evt.keyCode;
 	let posi_actual=Number((this.mono.obj.style.left).replace("px",""));
 	let limite_izq=0;
@@ -157,6 +163,11 @@ function moverObjeto(objeto){
 				this.agregarBanana();
 			}else
 			if(objeto.getAttribute("src")==Diccionario.imagenes.tronco){
+				this.mono.obj.setAttribute("src",Diccionario.imagenes.mono_muerto[this.mono.mira]);
+				this.grito.play();
+				setTimeout(()=>{
+					this.mono.obj.setAttribute("src",Diccionario.imagenes.mono[this.mono.mira][this.mono.img]);
+				},300);
 				if(!this.quitarVida()){
 					content_juego.removeChild(objeto);
 					clearInterval(intervalo);

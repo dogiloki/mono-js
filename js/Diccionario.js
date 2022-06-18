@@ -22,8 +22,17 @@ class Diccionario{
 				"assets/mono/der/mono6.svg"
 			]
 		},
+		mono_muerto:{
+			izq:"assets/mono/izq/mono0.svg",
+			der:"assets/mono/der/mono0.svg"
+		},
 		tronco:"assets/tronco.svg",
 		banana:"assets/banana.svg"
+	};
+
+	static audios={
+		musica:"assets/musica.wav",
+		grito:"assets/grito.m4a"
 	};
 
 	static tecla={
